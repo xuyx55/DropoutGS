@@ -1,0 +1,7 @@
+setup.py
+/root/autodl-tmp/DropoutGS/shencoder/src/bindings.cpp
+/root/autodl-tmp/DropoutGS/shencoder/src/shencoder.cu
+shencoder.egg-info/PKG-INFO
+shencoder.egg-info/SOURCES.txt
+shencoder.egg-info/dependency_links.txt
+shencoder.egg-info/top_level.txt
