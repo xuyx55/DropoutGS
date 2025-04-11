@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Efficient Region-Aware Neural Radiance Fields for High-Fidelity Talking Portrait Synthesis.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DropoutGS: Dropouting out Gaussian for Better Sparse-view Rendering</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">DropoutGS: Dropouting out Gaussian for Better Sparse-view Rendering</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://xuyx55.github.io/xuyx/" target="_blank">
+                Yexing Xu</a><sup>1,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://longguangwang.github.io/" target="_blank">
+                Longguang Wang</a><sup>1,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://minglin-chen.github.io/" target="_blank">
+                Minglin Chen</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.hk/citations?user=cvS1yuMAAAAJ&hl=zh-CN">
+                Sheng Ao</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.fst.um.edu.mo/personal/llili/" target="_blank">
+                Li Li</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.yulanguo.cn/" target="_blank">
+                Yulan Guo</a><sup>1,†</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The Shenzhen Campus, Sun Yat-Sen Univeristy,</span>
+            <span class="author-block"><sup>2</sup>Xiamen Univeristy,</span>
+            <span class="author-block"><sup>3</sup>Univeristy of Macau</span> 
+          </div>
+
+          <div class="is-size-5">
+            <span style="color: rgb(165, 165, 165);">CVPR 2025</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/files/DropoutGS.pdf" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.06912" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=xmaRI9M3g_M" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/xuyx55/DropoutGS" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body"> -->
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <!-- <img src="./static/images/teaser.png"/>
+      <h2 class="subtitle has-text-centered">
+        With sparse input views, <span class="dnerf">DNGaussian</span> stands out by delivering comparably high-quality synthesized views and superior details with a remarkable 25x reduction in
+        time and significantly lower memory overhead during training, while attaining the fastest rendering speed of 300 FPS.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified" style="margin-bottom:3rem;">
+          <p>
+            Although 3D Gaussian Splatting (3DGS) has demonstrated promising results in novel view synthesis, its performance degrades dramatically with sparse inputs and generates undesirable artifacts. As the number of training views decreases, the novel view synthesis task degrades to a highly under-determined problem such that existing methods suffer from the notorious overfitting issue.
+          </p>
+          <p>
+            Interestingly, we observe that models with fewer Gaussian primitives exhibit less overfitting under spare inputs. Inspired by this observation, we propose a Random Dropout Regularization (RDR) to exploit the advantages of low-complexity models to alleviate overfitting. In addition, to remedy the lack of high-frequency details for these models, an Edge-guided Splitting Strategy (ESS) is developed. With these two techniques, our method (termed DropoutGS) provides a simple yet effective plug-in approach to improve the generalization performance of existing 3DGS methods. Extensive experiments show that our DropoutGS produces state-of-the-art performance under sparse views on benchmark datasets including Blender, LLFF, and DTU.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video" style="margin-bottom:1rem;">
+          <iframe src="./static/video/method.mp4"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!-- / Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-centered">
+          <img src="./static/images/pipeline.svg">
+        </div>
+        <div class="content has-text-justified" style="margin-bottom:4rem;">
+          <p>
+            In DropoutGS, a random dropout regularization is applied to alleviate the overfitting degradation, obtaining smooth and artifact-free coarse rendering. 
+            To remedy the high-frequency detail loss during optimization, we additionally employ an edge-guided splitting strategy for finer synthesis views.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+
+        <h3 class="title is-3">Comparison</h3>
+        <div class="content has-text-justified">
+          <p>
+            Comarison with current SOTA baselines. Zoom in for better visualization.
+          </p>
+        </div>
+        <h5 class="title is-5">LLFF</h5>
+        <div class="content has-text-centered">
+          <img src="./static/images/LLFF.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="content">
+          <h5 class="title is-5">DTU</h5>
+          <img src="./static/images/DTU.png" style="margin-right: 10px;"/>
+        </div>
+      </div>
+
+      <div class="column">
+        <!-- <h2 class="title is-3">Region Attention</h2> -->
+        <div class="columns is-centered">
+          <div class="column content">
+            <h5 class="title is-5">Blender</h5>
+            <img src="./static/images/blender.png"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+     <pre><code>@article{li2024dngaussian,
+    title={DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization}, 
+    author={Jiahe Li and Jiawei Zhang and Xiao Bai and Jin Zheng and Xin Ning and Jun Zhou and Lin Gu},
+    journal={arXiv preprint arXiv:2403.06912},
+    year={2024}
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/files/DropoutGS.pdf"  target="_blank"> 
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/xuyx55/DropoutGS"  target="_blank" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is developed based on <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
