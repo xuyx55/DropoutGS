@@ -2,7 +2,7 @@
 
 This is the official repository for our CVPR 2025 paper **DropoutGS: Dropping Out Gaussians for Better Sparse-view Rendering.**
 
-[Paper](assets/paper.pdf) | [Project](https://xuyx55.github.io/DropoutGS/)
+[Arxiv](https://arxiv.org/abs/2504.09491) |[ Paper](assets/paper.pdf) | [Project](https://xuyx55.github.io/DropoutGS/)
 
 ![image](assets/main.svg)
 
@@ -104,18 +104,18 @@ bash scripts/train_llff_mvs.sh $<dataset_path_for_llff_scene> output/llff_dense/
 
 Similar to Gaussian Splatting, our method can read standard COLMAP format datasets. Please customize your sampling rule in `scenes/dataset_readers.py`, and see how to organize a COLMAP-format dataset from raw RGB images referring to our preprocessing of DTU.
 
-<!-- ## Citation
+## Citation
 
 Consider citing as below if you find this repository helpful to your project:
 
 ```
-@article{li2024dngaussian,
-   title={DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization},
-   author={Li, Jiahe and Zhang, Jiawei and Bai, Xiao and Zheng, Jin and Ning, Xin and Zhou, Jun and Gu, Lin},
-   journal={arXiv preprint arXiv:2403.06912},
-   year={2024}
-}
-``` -->
+@article{xu2025dropoutgs,
+      title={DropoutGS: Dropping Out Gaussians for Better Sparse-view Rendering},
+      author={Xu, Yexing and Wang, Longguang and Chen, Minglin and Ao, Sheng and Li, Li and Guo, Yulan},
+      journal={arXiv preprint arXiv:2504.09491},
+      year={2025}
+    }
+```
 
 ## Acknowledgement
 
