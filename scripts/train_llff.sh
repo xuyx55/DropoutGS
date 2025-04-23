@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 获取用户传入的路径
 source_path=$1
 model_path=$2
 

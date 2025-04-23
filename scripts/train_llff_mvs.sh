@@ -1,13 +1,10 @@
 #!/bin/bash
-
-# 检查用户是否传入了自定义的 source_path 和 model_path
 if [ $# -lt 2 ]; then
     echo "Usage: $0 <source_path> <model_path>"
     echo "Example: $0 /path/to/source /path/to/model"
     exit 1
 fi
 
-# 获取用户传入的路径
 source_path=$1
 model_path=$2
 
