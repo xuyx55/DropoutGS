@@ -44,7 +44,7 @@ If encountering installation problem of the `diff-gaussian-rasterization` or `gr
 1. Download DTU dataset
 
    - Download the DTU dataset "Rectified (123 GB)" from the [official website](https://roboimagedata.compute.dtu.dk/?page_id=36/), and extract it.
-   - Download masks (used for evaluation only) from [this link](https://drive.google.com/file/d/1d4BglbLvsgskyetUDRUb3miOfpZQq_kV/view?usp=drive_link).
+   - Download masks (used for evaluation only) from [this link](https://drive.google.com/file/d/1d4BglbLvsgskyetUDRUb3miOfpZQq_kV/view?usp=sharing).
 2. Organize DTU for few-shot setting
 
    ```bash
