@@ -25,7 +25,7 @@ If encountering installation problem of the `diff-gaussian-rasterization` or `gr
 
 ### LLFF
 
-1. Download LLFF from [the official download link](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1).
+1. Download LLFF from [the official download link](https://drive.google.com/file/d/11PhkBXZZNYTD2emdG1awALlhCnkq7aN-/view).
 2. Generate monocular depths by DPT:
 
    ```bash
@@ -70,7 +70,7 @@ If encountering installation problem of the `diff-gaussian-rasterization` or `gr
 
 ### Blender
 
-1. Download the NeRF Synthetic dataset from [here](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1?usp=sharing).
+1. Download the NeRF Synthetic dataset from [here](https://drive.google.com/file/d/1OsiBs2udl32-1CqTXCitmov4NQCYdA9g/view).
 2. Generate monocular depths by DPT:
 
    ```bash
